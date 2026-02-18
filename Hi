@@ -1,0 +1,53 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Script Hub của Bạn",
+   LoadingTitle = "Đang khởi tạo...",
+   LoadingSubtitle = "by H4CKERVN",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "H4CKERVNScripts",
+      FileName = "MyScriptConfig"
+   }
+})
+
+local Tab = Window:CreateTab("Main Menu", 4483362458)
+
+--- NÚT 1: NORMAL ---
+Tab:CreateButton({
+   Name = "Script Normal",
+   Callback = function()
+       loadstring(game:HttpGet("https://pastefy.app/DWAHY6aj/raw", true))()
+   end,
+})
+
+--- NÚT 2: OP (KEY) ---
+Tab:CreateButton({
+   Name = "Script OP (Key)",
+   Callback = function()
+       loadstring(game:HttpGet("https://overflow.cx/loader.html"))()
+   end,
+})
+
+--- NÚT 3: OP (NO KEY) - INFINITE JUMP ---
+Tab:CreateButton({
+   Name = "Script OP (No Key)",
+   Callback = function()
+       local InfiniteJumpEnabled = true
+       game:GetService("UserInputService").JumpRequest:Connect(function()
+           if InfiniteJumpEnabled then
+               local humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+               if humanoid then
+                   humanoid:ChangeState("Jumping")
+               end
+           end
+       end)
+       
+       Rayfield:Notify({
+          Title = "Kích hoạt thành công",
+          Content = "Đã bật Infinite Jump! Bạn có thể nhảy liên tục trên không.",
+          Duration = 3,
+          Image = 4483362458,
+       })
+   end,
+})
